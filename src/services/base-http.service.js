@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default class BaseHttpService {
-  BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
+  BASE_URL = "https://nestjs-khama-tasks-management.onrender.com";
   _accessToken = null;
 
   constructor(routerStore) {
