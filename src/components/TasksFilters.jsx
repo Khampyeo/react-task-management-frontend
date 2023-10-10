@@ -33,7 +33,7 @@ function TasksFilters() {
   const debouncedSearch = useMemo(() => {
     return debounce((newSearch) => {
       updateFilters({ status, search: newSearch });
-    }, 1000);
+    }, 500);
   }, []);
 
 
