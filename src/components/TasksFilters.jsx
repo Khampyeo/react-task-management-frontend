@@ -25,6 +25,7 @@ function TasksFilters() {
 
   const handleStatusFilterChange = (e) => {
     const newStatus = e.target.value;
+
     setStatus(newStatus);
     updateFilters({ status: newStatus, search });
   };

@@ -44,12 +44,14 @@ const TasksContainer = styled.div`
   gap: 20px;
   border-radius: 12px;
   background-color: rgba(0, 0, 0, 0.1);
+  min-height: 400px;
 `;
 
 const EmptyTasksPlaceholder = styled.p`
   color: white;
   text-align: left;
-  font-size: 22px;
+  font-size: 24px;
+  margin: 0;
 `;
 
 const SignOutIconContainer = styled.div`
@@ -75,17 +77,13 @@ export default function TasksPage({ children }) {
 
   const renderTasks = () => {
     if (!tasksStore.tasks.length) {
-      return (
-        <EmptyTasksPlaceholder>
-          No tasks available. Create one?
-        </EmptyTasksPlaceholder>
-      );
+      return <EmptyTasksPlaceholder>No tasks available.</EmptyTasksPlaceholder>;
     }
 
     return tasksStore.tasks.map((task) => (
       <Task
-        key={task.id}
-        id={task.id}
+        key={task._id}
+        id={task._id}
         title={task.title}
         description={task.description}
         status={task.status}

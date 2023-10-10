@@ -19,6 +19,7 @@ const CardContainer = styled.div`
   border-radius: 12px;
   background-color: white;
   overflow: hidden;
+  height: fit-content;
 `;
 
 const CardTitle = styled.h1`

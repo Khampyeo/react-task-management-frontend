@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import './SignInPage.scss';
 import ErrorMessage from '../../components/ErrorMessage';
 import { UserContext } from '../../stores/user.store';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Heading = styled.h1`
   margin-top: 0;
@@ -29,8 +29,6 @@ const FormField = styled(TextField)`
 
 function SignInPage(props) {
   const navigate = useNavigate();
-  const location = useLocation()
-  console.log(location.pathname);
   const { signin } = useContext(UserContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

@@ -21,7 +21,7 @@ export function TasksProvider({ children }) {
             setTasks(result.data);
           }
         } catch (error) {
-          console.log(error);
+          throw error;
         }
     };
     fetchTasks();
@@ -38,14 +38,14 @@ export function TasksProvider({ children }) {
         setTasks([...tasks, result.data]);
       }
     } catch (error) {
-      // Xử lý lỗi nếu cần
+      throw error;
     }
   };
 
   const deleteTask = async (id) => {
     try {
       await tasksService.deleteTask(id);
-      const updatedTasks = tasks.filter((task) => task.id !== id);
+      const updatedTasks = tasks.filter((task) => task._id !== id);
       setTasks(updatedTasks);
     } catch (error) {
       // Xử lý lỗi nếu cần
@@ -56,7 +56,7 @@ export function TasksProvider({ children }) {
     try {
       await tasksService.updateTaskStatus(id, status);
       const updatedTasks = tasks.map((task) => {
-        if (task.id === id) {
+        if (task._id === id) {
           return { ...task, status };
         }
         return task;
